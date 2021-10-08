@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ch">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>《小 任 务》</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link rel="icon" href="助手娘.png">
+   <link rel="stylesheet" href="css/style.css" />
+    <script src="js/script.js" defer></script>
+</head>
+
+<body onload="myFunction()">
+   
+    <div id="loading"></div>
+    <div class="cont">
+        <div class="one">
+            <h1> Weather </h1>
+        </div>
+    </div>
+    <div class="two">
+        <div class="card">
+            <div class="search">
+                <input type="text" class="search-bar" placeholder="Search" />
+                <button>
+                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em"
+                        width="1.5em" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M10.442 10.442a1 1 0 011.415 0l3.85 3.85a1 1 0 01-1.414 1.415l-3.85-3.85a1 1 0 010-1.415z"
+                            clip-rule="evenodd"></path>
+                        <path fill-rule="evenodd"
+                            d="M6.5 12a5.5 5.5 0 100-11 5.5 5.5 0 000 11zM13 6.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="weather loading">
+				<div class="other">请输入城市名拼音，首字母大写</div>
+                <h2 class="city">Weather in Hangzhou</h2>
+                <h1 class="temp">21°C</h1>
+                <div class="flex">
+                    <img src="https://openweathermap.org/img/wn/04d.png" alt="" class="icon" />
+                    <div class="description">多云</div>
+                </div>
+                <div class="other">
+                    <div class="humidity">湿度: 60%</div>
+                    <div class="wind">风速: 6.2 km/h</div>
+                    <div id="Date"></div>
+                    <div class="嘤嘤嘤">Everything will be OK</div>
+    <script type="text/javascript"> 
+        setInterval(function(){   
+        var date = new Date();   
+        var year = date.getFullYear();    //获取当前年份   
+        var mon = date.getMonth()+1;      //获取当前月份   
+        var da = date.getDate();          //获取当前日   
+        var day = date.getDay();          //获取当前星期几   
+        var h = date.getHours();          //获取小时   
+        var m = date.getMinutes();        //获取分钟   
+        var s = date.getSeconds();        //获取秒   
+        var d = document.getElementById('Date');    
+          d.innerHTML='当前时间:'+year+'年'+mon+'月'+da+'日'+'星期'+day+' '+h+':'+m+':'+s;  
+        },1000) 
+    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p id="hitokoto" class="yiyan"><a href="#" id="hitokoto_text">:D 获取中...</a></p>
+    <script>
+        fetch('https://v1.hitokoto.cn')
+          .then(response => response.json())
+          .then(data => {
+            const hitokoto = document.getElementById('hitokoto_text')
+            hitokoto.innerText = data.hitokoto
+          })
+          .catch(console.error)
+      </script>
+   
+    <script>
+        var preloader = document.getElementById('loading');
+        function myFunction() {
+            preloader.style.display = 'none';
+        }
+    </script>
+    <script type="text/javascript" ></script>
+    <script type="text/javascript">
+     
+    </script>
+ 
+</body>
